@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using TravelPLaces11.Data;
+
 namespace TravelPlaces11
 {
     public class Program
@@ -5,6 +8,9 @@ namespace TravelPlaces11
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<TravelPlaces11DbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
