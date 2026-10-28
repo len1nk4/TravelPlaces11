@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TravelPLaces11.Data;
 
-namespace TravelPlaces11
+namespace TravelPlaces11.Web
 {
     public class Program
     {
@@ -34,7 +34,7 @@ namespace TravelPlaces11
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Place}/{action=Index}/{id?}");
 
             app.Run();
         }

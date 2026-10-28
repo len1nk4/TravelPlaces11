@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TravelPLaces11.Data.Entities.TravelPlace>
+
+@{
+    ViewData["Title"] = "Places";
+}
+
+<h1>Места за посещение</h1>
+
+<a asp-controller="Place" asp-action="Create" class="btn btn-primary mb-3">
+    Добави ново място
+</a>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Име</th>
+                <th>Област</th>
+                <th>Вид</th>
+                <th>Такса</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var place in Model)
+            {
+                <tr>
+                    <td>@place.Name</td>
+                    <td>@place.Area</td>
+                    <td>@place.Type</td>
+                    <td>@place.Fee</td>
+                    <td>@place.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Все още няма добавени места.</p>
+}
